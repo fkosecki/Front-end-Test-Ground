@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/88b61b3205.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        --initialDelay: 1s;
+        --shadowColor: 246;
+        font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    }
+
+
+    header {
+        display: flex;
+        width: 80%;
+        /* max-width: 1024px; */
+        max-height: 100vh;
+        height: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+        /* background-color: royalblue; */
+        justify-content: center;
+        margin: 10px auto;
+    }
+
+    header div.headerText {
+        align-self: center;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 15px;
+        height: 10%;
+        /* background-color: aquamarine; */
+        flex-basis: 100%;
+        max-width: 1024px;
+        opacity: 0%;
+        margin-bottom: 5%;
+        z-index: 1;
+    }
+
+    header div.headerText {
+        font-family: 'Bangers', cursive;
+        font-size: 10em;
+        flex-basis: 100%;
+        text-transform: uppercase;
+        text-decoration: underline;
+        transform: rotate(-10deg) translateX(-3%);
+        text-shadow: 1px 1px hsl(var(--shadowColor), 50%, 45%),
+            2px 2px hsl(var(--shadowColor), 50%, 40%),
+            3px 3px hsl(var(--shadowColor), 50%, 35%),
+            4px 4px hsl(var(--shadowColor), 50%, 34%),
+            5px 5px hsl(var(--shadowColor), 50%, 33%),
+            6px 6px hsl(var(--shadowColor), 50%, 32%),
+            7px 7px hsl(var(--shadowColor), 50%, 31%),
+            8px 8px hsl(var(--shadowColor), 50%, 30%),
+            9px 9px hsl(var(--shadowColor), 50%, 29%),
+            10px 10px hsl(var(--shadowColor), 50%, 28%),
+            10px 10px 30px rgba(0, 0, 0, .7);
+    }
+
+    div.headerImages {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        flex-basis: 70%;
+        height: 30%;
+        width: 80%;
+        max-width: 1024px;
+        align-self: center;
+        margin-top: 20px;
+        /* background-color: saddlebrown; */
+    }
+
+    header img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: none;
+    }
+
+    .hImg1animation {
+        display: block;
+        z-index: 1;
+        transform: translateY(-1000%);
+        animation: enterImg 0.1s ease calc(var(--initialDelay) + 0.5s) 1 forwards;
+    }
+
+    .hImg2animation {
+        display: block;
+        animation: showImg calc(var(--initialDelay) + 0.65s) steps(1) 0.0s 1 forwards;
+    }
+
+    .hImg3animation {
+        display: block;
+        z-index: 1;
+        transform: translateY(-1000%);
+        animation: enterImg 0.1s ease calc(var(--initialDelay) + 1s) 1 forwards;
+    }
+
+    .hImg4animation {
+        display: block;
+        animation: showImg calc(var(--initialDelay) + 1.15s) steps(1) 0s 1 forwards;
+    }
+
+    .hImg5animation {
+        display: block;
+        z-index: 1;
+        transform: translateY(-1000%);
+        animation: enterImg 0.1s ease calc(var(--initialDelay) + 1.3s) 1 forwards;
+    }
+
+    .hImg6animation {
+        display: block;
+        animation: showImg calc(var(--initialDelay) + 1.35s) steps(1) 0s 1 forwards;
+    }
+
+    .hTextanimation {
+        animation: showImg calc(var(--initialDelay) + 2.25s) steps(1) 0s 1 forwards;
+    }
+
+    @keyframes enterImg {
+
+        0% {
+            opacity: 0%;
+        }
+
+        100% {
+            transform: translateY(0%);
+            opacity: 100%;
+        }
+    }
+
+    @keyframes showImg {
+        0% {
+            opacity: 0%;
+        }
+
+        100% {
+            opacity: 100%;
+        }
+    }
+
+    .blur {
+        filter: blur(2px);
+    }
+
+    .modal-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, .5);
+
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .disabled {
+        opacity: 30%;
+    }
+
+    .modal-wrap .modal {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width: 80%;
+        max-width: 1024px;
+        height: 70%;
+        background-color: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10%;
+        border: 3px solid black;
+        font-size: 24px;
+    }
+
+    @media (orientation: portrait) {
+        .modal-wrap .modal {
+            width: 90%;
+            height: 90%;
+            font-size: 12px;
+        }
+    }
+
+    .modal .top {
+        flex-basis: 10%;
+    }
+
+    .modal .middle {
+        flex-grow: 1;
+        position: relative;
+        padding: 0px 10%;
+        text-align: center;
+    }
+
+    .modal .middle::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("resources/mbd1.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 10%;
+        background-size: auto 100%;
+        z-index: -1;
+    }
+
+    .modal .bottom {
+        flex-basis: 10%;
+    }
+
+    .middle h1 {
+        font-size: 1.5em;
+        text-transform: uppercase;
+    }
+
+    .middle p {
+        font-size: 24px;
+    }
+
+    .middle p span {
+        display: block;
+        text-transform: uppercase;
+        font-size: 2em;
+        border: 3px solid black;
+        cursor: pointer;
+        margin: 3% auto;
+    }
+
+    .middle p .continueButton {
+        padding: 0px 5px;
+    }
+
+    .buttons {
+        width: 10%;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        top: 5%;
+        right: 0%;
+        /* background-color: lawngreen; */
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .buttons .fas {
+        text-align: center;
+        flex-basis: 100%;
+        font-size: 120%;
+        padding: 10%;
+        margin-bottom: 5%;
+        border: 5px solid black;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.5s ease;
+    }
+
+    .buttons .fas:hover {
+        color: white;
+        background-color: black;
+    }
+
+    .nav {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        background-color: rgba(0, 0, 0, .90);
+        width: 90%;
+        bottom: 0;
+        z-index: 10;
+        transition: 0.3s linear;
+        align-content: center;
+        justify-content: center;
+    }
+
+    nav.show-menu {
+        left: 0px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-basis: 50%;
+        flex-direction: column;
+        /* background-color: seagreen; */
+        align-content: center;
+        font-size: 200%;
+        justify-content: space-evenly;
+    }
+
+    nav ul ui {
+        display: block;
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    nav ul ui a {
+        display: block;
+        padding: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: whitesmoke;
+        border: 3px solid whitesmoke;
+        /* background-color: sienna; */
+    }
+
+    nav ul ui a:hover {
+        box-shadow: 0 0 12px 2px #ffffff;
+    }
+</style>
+
+<body>
+    <section class="modal-wrap">
+        <div class="modal">
+            <div class="top"></div>
+            <div class="middle">
+                <h1>Hello World!</h1>
+                <p>Welcome to one of my first front-end projects.<br />
+                    You're about to witness a piece of my coding skills.<br />
+                    After pressing 'Continue' button you'll "enjoy" some nasty sounds.<br />
+                    If you got weak heart, make sure to turn the sound off with the button below:<br />
+                    <span class="soundButton"><i class="fas fa-volume-off"></i></span><br />
+                    Make sure to visit from time to time as I will update this project to show off
+                    some cool things,
+                    that you can make on front-end.
+                    <span class="continueButton">Continue</span><br />
+                </p>
+            </div>
+            <div class="bottom"></div>
+        </div>
+    </section>
+    <header>
+        <audio id="glassBrake" src="resources/gun.mp3" preload="auto">
+        </audio>
+        <div class="headerText">test<br /> ground</div>
+        <div class="headerImages">
+            <img src="resources/html.png" alt="" class="hImg1">
+            <img src="resources/htmlc.png" alt="" class="hImg2">
+            <img src="resources/css.png" alt="" class="hImg3">
+            <img src="resources/cssc.png" alt="" class="hImg4">
+            <img src="resources/js.png" alt="" class="hImg5">
+            <img src="resources/jsc.png" alt="" class="hImg6">
+        </div>
+    </header>
+    <div class="buttons">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-volume-off"></i>
+        <i class="fas fa-redo"></i>
+    </div>
+    <nav class="nav">
+        <ul class="menu">
+            <ui class="menu-item"><a href="homepage.html">home</a></ui>
+            <ui class="menu-item"><a href="face-gallery.html">Face gallery</a></ui>
+            <ui class="menu-item"><a href="#">Not ready yet...</a></ui>
+            <ui class="menu-item"><a href="#">Not ready yet...</a></ui>
+            <ui class="menu-item"><a href="#">Not ready yet...</a></ui>
+        </ul>
+    </nav>
+    <script>
+        const modalWrap = document.querySelector("section.modal-wrap");
+        modalWrap.classList.toggle("active");
+        const continueBtn = document.querySelector("span.continueButton")
+        const soundBtn = document.querySelector("span.soundButton")
+        let playSound = true;
+
+        const headerText = document.querySelector(".headerText"),
+            crackedImg1 = document.querySelector("img.hImg2"),
+            img1 = document.querySelector("img.hImg1"),
+            crackedImg2 = document.querySelector("img.hImg4"),
+            img2 = document.querySelector("img.hImg3"),
+            crackedImg3 = document.querySelector("img.hImg6"),
+            img3 = document.querySelector("img.hImg5"),
+
+            glassBrakeSound = document.getElementById('glassBrake'),
+
+            menuBtn = document.querySelector(".buttons .fa-bars"),
+            soundMenuBtn = document.querySelector(".buttons .fa-volume-off"),
+            redoMenuBtn = document.querySelector(".buttons .fa-redo"),
+            navMenu = document.querySelector("nav.nav");
+
+        crackedImg1.addEventListener('animationend', function () {
+            if (playSound) {
+                glassBrakeSound.play();
+            }
+        });
+
+        continueBtn.addEventListener('click', function () {
+            toggleModal();
+        });
+
+        soundBtn.addEventListener('click', function () {
+            if (playSound) {
+                playSound = false;
+                soundBtn.classList.toggle("disabled");
+                soundMenuBtn.classList.toggle("disabled");
+            } else {
+                playSound = true;
+                soundBtn.classList.toggle("disabled");
+                soundMenuBtn.classList.toggle("disabled");
+            }
+        });
+
+        menuBtn.addEventListener('click', function () {
+            navMenu.classList.toggle("show-menu");
+        });
+
+        soundMenuBtn.addEventListener('click', function () {
+            if (playSound) {
+                playSound = false;
+                soundBtn.classList.toggle("disabled");
+                soundMenuBtn.classList.toggle("disabled");
+            } else {
+                playSound = true;
+                soundBtn.classList.toggle("disabled");
+                soundMenuBtn.classList.toggle("disabled");
+            }
+        });
+
+        redoMenuBtn.addEventListener('click', function () {
+            redoAnimation();
+        });
+
+        function toggleModal() {
+            if (modalWrap.classList.contains("active")) {
+                modalWrap.classList.toggle("hide");
+                toggleAnimation();
+            }
+        }
+
+
+        function toggleAnimation() {
+            img1.classList.toggle("hImg1animation");
+            crackedImg1.classList.toggle("hImg2animation");
+            img2.classList.toggle("hImg3animation");
+            crackedImg2.classList.toggle("hImg4animation");
+            img3.classList.toggle("hImg5animation");
+            crackedImg3.classList.toggle("hImg6animation");
+            headerText.classList.toggle("hTextanimation");
+        }
+
+        function redoAnimation() {
+            img1.classList.remove("hImg1animation");
+            crackedImg1.classList.remove("hImg2animation");
+            img2.classList.remove("hImg3animation");
+            crackedImg2.classList.remove("hImg4animation");
+            img3.classList.remove("hImg5animation");
+            crackedImg3.classList.remove("hImg6animation");
+            headerText.classList.remove("hTextanimation");
+            window.requestAnimationFrame(function () {
+                img1.classList.add("hImg1animation");
+                crackedImg1.classList.add("hImg2animation");
+                img2.classList.add("hImg3animation");
+                crackedImg2.classList.add("hImg4animation");
+                img3.classList.add("hImg5animation");
+                crackedImg3.classList.add("hImg6animation");
+                headerText.classList.add("hTextanimation");
+            });
+
+        }
+    </script>
+</body>
+
+</html>
