@@ -4,13 +4,13 @@
 }
 
 html {
-  font-family: oswald;
+  font-family: Oswald, sans-serif;
   font-size: 10px;
 }
 
 .team {
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   overflow: hidden;
   background-color: #ccc;
   position: relative;
@@ -232,6 +232,133 @@ html {
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.about,
+.quotes {
+  margin: 90px 0;
+}
+
+.about h1,
+.quotes h1 {
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ABOUT */
+.about h2 {
+  background-color: cadetblue;
+  padding: 20px 0 20px 10vw;
+  font-size: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.about img {
+  float: left;
+  padding: 0 30px;
+}
+
+.about p {
+  font-size: 22px;
+  padding-right: 40px;
+  line-height: 2;
+}
+
+.about article {
+  margin-bottom: 30px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.about .art2,
+.about .art4 {
+  -webkit-transform: translateX(-100vw);
+          transform: translateX(-100vw);
+}
+
+.about .art3 {
+  -webkit-transform: translateX(100vw);
+          transform: translateX(100vw);
+}
+
+.about .art2.active,
+.about .art4.active,
+.about .art3.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+/* QUOTES */
+.quotes {
+  padding: 0 20px;
+}
+
+.quotes p {
+  font-size: 22px;
+  padding: 0 10vw;
+}
+
+.quotes p span {
+  color: royalblue;
+}
+
+.quotes article {
+  margin-bottom: 30px;
+}
+
+.quotes article.op1 img {
+  display: block;
+  width: 100%;
+  padding: 5vh 5vw;
+}
+
+.quotes article.op2 img {
+  display: block;
+  width: 100%;
+  padding: 5vh 20vw;
+}
+
+.quotes article {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: .8s linear;
+  transition: .8s linear;
+}
+
+.quotes article.active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+/* Footer */
+footer {
+  line-height: 80px;
+  background-color: #000;
+  text-align: center;
+  color: white;
+  font-size: 22px;
+}
+
 .buttons {
   width: 10%;
   position: fixed;
@@ -249,6 +376,7 @@ html {
       flex-wrap: wrap;
   -ms-flex-line-pack: center;
       align-content: center;
+  z-index: 999;
 }
 
 .buttons .fas {
@@ -278,9 +406,9 @@ nav {
   top: 0;
   left: -100%;
   background-color: rgba(0, 0, 0, 0.9);
-  width: 90%;
+  width: 90vw;
   bottom: 0;
-  z-index: 10;
+  z-index: 999;
   -webkit-transition: 0.3s linear;
   transition: 0.3s linear;
   -ms-flex-line-pack: center;
@@ -302,7 +430,7 @@ nav ul {
           flex-direction: column;
   -ms-flex-line-pack: center;
       align-content: center;
-  font-size: 200%;
+  font-size: 30px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;

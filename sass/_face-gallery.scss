@@ -1,168 +1,118 @@
- * {
-     margin: 0;
-     padding: 0;
- }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
 
- html {
-     font-family: oswald;
-     font-size: 10px;
- }
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
 
- .team {
-     width: 100%;
-     height: 100vh;
-     overflow: hidden;
-     background-color: #ccc;
-     position: relative;
- }
+body {
+    overflow-x: hidden
+}
 
- .team img.color {
-     position: absolute;
-     bottom: 0;
-     right: -5%;
-     height: 36%;
-     z-index: 1;
-     animation: color 4s linear infinite;
- }
+.about,
+.quotes {
+    margin: 90px 0;
+}
 
- .team img.gray {
-     position: absolute;
-     bottom: 0;
-     left: -70%;
-     height: 110%;
-     opacity: 0.2;
-     animation: gray 4s linear infinite;
+.about h1,
+.quotes h1 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 40px;
+}
 
- }
+/* ABOUT */
+.about h2 {
+    background-color: cadetblue;
+    padding: 20px 0 20px 10vw;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: white;
+}
 
- .team .member {
-     position: absolute;
-     top: 10%;
-     left: 0;
-     text-align: center;
-     width: 100%;
-     text-transform: uppercase;
-     letter-spacing: 2px;
-     animation: text 4s linear infinite;
- }
+.about img {
+    float: left;
+    padding: 0 30px;
+}
 
- .team h1 {
-     font-size: 4rem;
- }
+.about p {
+    font-size: 22px;
+    padding-right: 40px;
+    line-height: 2;
+}
 
- .team h2 {
-     font-size: 2.2rem;
- }
+.about article {
+    margin-bottom: 30px;
+    transition: 1s;
+}
 
- @media (orientation: landscape) {
-     .team img.color {
-         right: 3%;
-         height: 56%;
-     }
+.about .art2,
+.about .art4 {
+    transform: translateX(-100vw);
+}
 
-     .team img.gray {
-         bottom: -10%;
-         left: -15%;
-         height: 130%;
-     }
+.about .art3 {
+    transform: translateX(100vw);
+}
 
-     .team .member {
-         width: 60%;
-         right: 0;
-         left: auto;
-     }
- }
+.about .art2.active,
+.about .art4.active,
+.about .art3.active {
+    transform: translateX(0);
+}
 
- @media (min-width: 1025px) {
-     .team h1 {
-         font-size: 8rem;
-     }
+/* QUOTES */
+.quotes {
+    padding: 0 20px;
+}
 
-     .team h2 {
-         font-size: 5rem;
-     }
- }
+.quotes p {
+    font-size: 22px;
+    padding: 0 10vw;
+}
 
- @keyframes color {
-     0% {
-         transform: translateX(0);
-         opacity: 0;
-     }
+.quotes p span {
+    color: royalblue;
+}
 
-     8% {
-         opacity: 0;
-     }
+.quotes article {
+    margin-bottom: 30px;
+}
 
-     13% {
-         opacity: 1;
-     }
+.quotes article.op1 img {
+    display: block;
+    width: 100%;
+    padding: 5vh 5vw;
+}
 
-     87% {
-         opacity: 1;
-     }
+.quotes article.op2 img {
+    display: block;
+    width: 100%;
+    padding: 5vh 20vw;
+}
 
-     92% {
-         opacity: 0
-     }
+.quotes article {
+    transform: scale(0);
+    transition: .8s linear;
+}
 
-     100% {
-         transform: translateX(-5%);
-         opacity: 0;
-     }
- }
+.quotes article.active {
+    transform: scale(1);
+}
 
- @keyframes gray {
-     0% {
-         transform: translateX(0) scale(1);
-         opacity: 0;
-     }
-
-     8% {
-         opacity: 0;
-     }
-
-     13% {
-         opacity: .2;
-     }
-
-     87% {
-         opacity: .2;
-     }
-
-     92% {
-         opacity: 0
-     }
-
-     100% {
-         transform: translateX(5%) scale(1.1);
-         opacity: 0;
-     }
- }
-
- @keyframes text {
-     0% {
-         transform: scale(1);
-         opacity: 0;
-     }
-
-     8% {
-         opacity: 0;
-     }
-
-     13% {
-         opacity: 1;
-     }
-
-     87% {
-         opacity: 1;
-     }
-
-     92% {
-         opacity: 0
-     }
-
-     100% {
-         transform: scale(1.1);
-         opacity: 0;
-     }
- }
+/* Footer */
+footer {
+    line-height: 80px;
+    background-color: #000;
+    text-align: center;
+    color: white;
+    font-size: 22px;
+}

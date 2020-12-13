@@ -1,29 +1,19 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Slider/Banner</title>
+    <title>Pretty people | Face gallery</title>
+    <link rel="icon" href="resources/mbd_logo.png">
     <link rel="stylesheet" href="css/style-face-gallery.css">
     <link href="https://fonts.googleapis.com/css?family=Oswald&amp;subset=latin-ext" rel="stylesheet">
     <script src="https://kit.fontawesome.com/88b61b3205.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <section class="team">
-        <img src="img/s1.png" alt="dziewczyna 1 kolor" class="color">
-        <img src="img/s1a.png" alt="dziewczyna 1 szara" class="gray">
-        <div class="member">
-            <h1>Anna Baugart</h1>
-            <h2>Programistka JS</h2>
-        </div>
-
-    </section>
-    <div class="buttons">
-        <i class="fas fa-bars"></i>
-    </div>
+    <!-- Start of nav menu. -->
     <nav class="nav">
         <ul class="menu">
             <li class="menu-item"><a href="homepage.html">home</a></li>
@@ -33,37 +23,103 @@
             <li class="menu-item"><a href="#">Not ready yet...</a></li>
         </ul>
     </nav>
-    <script>
-        //Parametry
-        let activeElement = 0;
-        const timeChange = 4000;
-        // Pobieramy 4 elementy na których pracujemy
-        const colorImgHtml = document.querySelector('.color');
-        const grayImgHtml = document.querySelector('.gray');
-        const h1Html = document.querySelector('.member h1');
-        const h2Html = document.querySelector('.member h2');
+    <div class="buttons">
+        <i class="fas fa-bars"></i>
+    </div>
 
-        //Informacje w tablicach o elementach podmienianych
-        const colorImages = ['img/s1.png', 'img/s2.png', 'img/s3.png'];
-        const grayImages = ['img/s1a.png', 'img/s2a.png', 'img/s3a.png'];
-        const names = ['Anna Baugart', 'Marek Feliksiak', 'Arek Pawłowicz'];
-        const professions = ['Programistka JS', 'UX i UI Designer', 'Front-End Developer'];
+    <!-- End of nav menu. -->
+    <section class="team">
+        <img src="img/s1.png" alt="pretty human color" class="color">
+        <img src="img/s1a.png" alt="pretty human gray" class="gray">
+        <div class="member">
+            <h1>Pretty Human</h1>
+            <h2>Future Angular Master</h2>
+        </div>
 
-        function changeElement() {
-            console.log("automatyczne wwywołanie")
-            activeElement++;
-            if (activeElement == colorImages.length) {
-                activeElement = 0;
-            }
-            colorImgHtml.src = colorImages[activeElement];
-            grayImgHtml.src = grayImages[activeElement];
-            h1Html.textContent = names[activeElement];
-            h2Html.textContent = professions[activeElement];
+    </section>
 
-        }
 
-        setInterval(changeElement, timeChange)
-    </script>
+    <section class="about">
+        <h1>Pretty people feature:</h1>
+        <article class="art1 clearfix">
+            <h2>Dedication</h2>
+            <img src="icons/heart.png">
+            <p>We're still young enough to learn new things. We quickly adapt to new technologies and put them in use
+                whenever there is profit for our projects.</p>
+
+        </article>
+        <article class="art2 clearfix">
+            <h2>Knowledge (soon) and professionalism</h2>
+            <img src="icons/briefcase.png">
+
+            <p>We don't have direct experience in commercial software development... yet. We have worked on some college
+                projects - both solo and in teams. Different coding languages, with projects mostly focused on
+                functionality (unfortunately). Nevertheless in our current project - ERP Consultant - we've gained
+                insight in buisness side of
+                applications. Multiple solutions have been designed by our CEO - FK. </p>
+
+        </article>
+        <article class="art3 clearfix">
+            <h2>Perfection</h2>
+            <img src="icons/diploma.png">
+
+
+
+            <p>In all of our up to date projects, we've thrived for perfection. We understand the responsibility that
+                comes with the trust given to us, by our clients. Always delivering solutions that are both technically
+                optimal and accurate on buisness side. </p>
+
+        </article>
+        <article class="art4 clearfix">
+            <h2>Neverending Growth</h2>
+            <img src="icons/plant.png">
+
+
+
+            <p>Not only literally, as we're pretty big because of lockdown... Everyday is a lesson. Even in our daily
+                job,
+                we're looking for opportunities to gain new knowledge and experience. Never do we tell, that this is
+                outside of our expertise - if it is, it just means it is now and we will pry upon the matter to resolve
+                all kinds of problems. Being
+                versatile and resourceful is
+                one of our strongest points.</p>
+
+        </article>
+    </section>
+    <section class="quotes">
+        <h1>Why US?</h1>
+        <article class="op1">
+            <img src="img/team.jpg">
+            <p>
+                <span>"Versatility, resourcefullnes and analitical insight</span> - those are the features of the best
+                people in industry. And we got them all." -
+                <span>Filip Kosecki, Pretty People CEO</span>
+            </p>
+
+
+        </article>
+
+        <article class="op2">
+            <img src="img/team2.jpg">
+            <p>
+                "As we are somewhat skilled with graphic editors (those starting with 'A')
+                we make beauties like the one above
+                <span>totally by ourselves</span>
+                and we hope someone will appreciate that." - <span>Filip Kosecki, Monobrows Bears Developers CEO</span>
+            </p>
+
+        </article>
+    </section>
+
+    <footer>
+        <p><i class="far fa-copyright"></i> Pretty people <k style="opacity: 50%; font-size: .5em;">& WebSamuraj</k> |
+            We
+            make front
+            beautiful again.</p>
+    </footer>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/galleryScrollingAnimation.js"></script>
+    <script src="js/bannerAnimation.js"></script>
     <script src="js/nav.js"></script>
 </body>
 
